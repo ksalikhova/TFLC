@@ -67,5 +67,60 @@ namespace GUI
             if(result == DialogResult.Yes )
                 this.Close();
         }
+
+        private void сохранитьКакToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FileWorker fileWorker= new FileWorker();
+
+            try
+            {
+                fileWorker.SaveAs(inputField.Text);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(
+                    ex.Message,
+                    "Внимание",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            
+        }
+
+        private void createToolStripButton_Click(object sender, EventArgs e)
+        {
+            FileWorker fileWorker = new FileWorker();
+
+            try
+            {
+                fileWorker.CreateFile();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    ex.Message,
+                    "Внимание",
+                    MessageBoxButtons.AbortRetryIgnore,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        private void openToolStripButton_Click(object sender, EventArgs e)
+        {
+            FileWorker fileWorker = new FileWorker();
+
+            try
+            {
+                inputField.Text = fileWorker.OpenFile();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    ex.Message,
+                    "Внимание",
+                    MessageBoxButtons.AbortRetryIgnore,
+                    MessageBoxIcon.Error);
+            }
+        }
     }
 }

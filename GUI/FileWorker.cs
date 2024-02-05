@@ -23,9 +23,10 @@ namespace GUI
                 string filePath = saveFileDialog.FileName;
                 File.WriteAllText(filePath, "");
             }
-
-            throw new Exception("Невозможно создать файл!");
+            else
+                throw new Exception("Невозможно создать файл!");
         }
+
         public string OpenFile()
         {
             //OpenFileDialog был тут
@@ -40,9 +41,24 @@ namespace GUI
                     return text;
                 }
             }
-            throw new Exception("Невозможно открыть файл!");//спросить у Артёма нормально ли написано
+            else
+                throw new Exception("Невозможно открыть файл!");//спросить у Артёма нормально ли написано
         }
-        private void SaveFile() { }
-        private void SaveAs() { }       
+
+        public void SaveFile() { }
+
+        public void SaveAs(string str)
+        {
+            saveFileDialog.Filter = "All Files|*.doc;*.xls;*.ppt;*.doc;.xls;*.ppt;*.txt;";
+            saveFileDialog.FileName = "Новый документ";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = saveFileDialog.FileName;
+                File.WriteAllText(filePath, str);
+            }
+            else
+                throw new Exception("Невозможно сохранить файл!");
+        }       
     }
 }
