@@ -24,7 +24,7 @@ namespace GUI
                 File.WriteAllText(filePath, "");
             }
             else
-                throw new Exception("Невозможно создать файл!");
+                throw new Exception("Файл не был создан!");
         }
 
         public string OpenFile()
@@ -58,7 +58,7 @@ namespace GUI
                 File.WriteAllText(filePath, str);
             }
             else
-                throw new Exception("Невозможно сохранить файл!");
+                throw new Exception("Файл не сохранён!");
         }       
     }
 }

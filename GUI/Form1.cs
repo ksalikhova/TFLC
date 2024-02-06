@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace GUI
 {
@@ -15,7 +16,6 @@ namespace GUI
         public Compiler()
         {
             InitializeComponent();
-           
         }
 
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -31,7 +31,7 @@ namespace GUI
                 MessageBox.Show(
                     ex.Message,
                     "Внимание",
-                    MessageBoxButtons.AbortRetryIgnore,
+                    MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
             
@@ -50,7 +50,7 @@ namespace GUI
                 MessageBox.Show(
                     ex.Message, 
                     "Внимание",
-                    MessageBoxButtons.AbortRetryIgnore,
+                    MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
             
@@ -100,7 +100,7 @@ namespace GUI
                 MessageBox.Show(
                     ex.Message,
                     "Внимание",
-                    MessageBoxButtons.AbortRetryIgnore,
+                    MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
         }
@@ -118,9 +118,75 @@ namespace GUI
                 MessageBox.Show(
                     ex.Message,
                     "Внимание",
-                    MessageBoxButtons.AbortRetryIgnore,
+                    MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
+        }
+
+        private void cancelChangeToolStripButton_Click(object sender, EventArgs e)
+        {
+            if (inputField.CanUndo == true)
+            {
+                inputField.Undo();
+            }
+        }
+
+        private void retrieveChangeToolStripButton_Click(object sender, EventArgs e)
+        {
+            inputField.Redo();
+        }
+
+        private void copyToolStripButton_Click(object sender, EventArgs e)
+        {
+            inputField.Copy();
+        }
+
+        private void cutToolStripButton_Click(object sender, EventArgs e)
+        {
+            inputField.Cut();
+        }
+
+        private void pasteToolStripButton_Click(object sender, EventArgs e)
+        {
+            inputField.Paste();
+        }
+
+        private void отменитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (inputField.CanUndo == true)
+            {
+                inputField.Undo();
+            }
+        }
+
+        private void повторитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            inputField.Redo();
+        }
+
+        private void вырезатьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            inputField.Cut();
+        }
+
+        private void копироватьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            inputField.Copy();
+        }
+
+        private void вставитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            inputField.Paste();
+        }
+
+        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            inputField.Text = inputField.Text.Remove(inputField.SelectionStart, inputField.SelectionLength);
+        }
+
+        private void выделитьВсеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            inputField.SelectAll();
         }
     }
 }
