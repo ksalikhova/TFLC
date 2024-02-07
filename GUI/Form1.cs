@@ -12,10 +12,11 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 namespace GUI
 {
     public partial class Compiler : Form
-    {
+    {        
         public Compiler()
         {
             InitializeComponent();
+            //UpdateLineNumbers();
         }
 
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -187,6 +188,64 @@ namespace GUI
         private void выделитьВсеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             inputField.SelectAll();
+        }
+
+        private void plusSizeoolStripButton_Click(object sender, EventArgs e)
+        {
+            float fontSize = inputField.SelectionFont.Size;
+            inputField.Font = inputField.Font = new Font(inputField.Font.FontFamily, fontSize + 1.0f);          
+        }
+
+        private void minusSizeoolStripButton_Click(object sender, EventArgs e)
+        {
+            float fontSize = inputField.SelectionFont.Size;
+            inputField.Font = inputField.Font = new Font(inputField.Font.FontFamily, fontSize - 1.0f);
+        }
+
+        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FileWorker fileWorker = new FileWorker();
+
+            try
+            {
+                fileWorker.SaveFile(inputField.Text);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(
+                    ex.Message,
+                    "Внимание",
+                    MessageBoxButtons.OK);
+            }
+        }
+        private void UpdateLineNumbers()
+        {
+            inputField.SelectionStart = 0;
+            inputField.SelectionLength = inputField.Text.Length;
+            inputField.SelectionBackColor = inputField.BackColor;
+
+            int selectionStart = inputField.SelectionStart;
+            int selectionLength = inputField.Text.Length;
+
+            int firstIndex = inputField.GetCharIndexFromPosition(new Point(0, 0));
+            int firstLine = inputField.GetLineFromCharIndex(firstIndex);
+            int firstLineY = inputField.GetPositionFromCharIndex(firstIndex).Y;
+
+            inputField.SelectionStart = 0;
+            inputField.SelectionLength = inputField.Text.Length;
+
+            int i = 0;
+            Point newPoint = new Point(0, firstLineY);
+            while (newPoint.Y < inputField.Height)
+            {
+                i++;
+                inputField.SelectionBackColor = Color.LightGray;
+                inputField.SelectedText = i.ToString() + Environment.NewLine;
+                newPoint = inputField.GetPositionFromCharIndex(inputField.GetFirstCharIndexFromLine(i));
+            }
+
+            inputField.SelectionStart = selectionStart;
+            inputField.SelectionLength = selectionLength;
         }
     }
 }

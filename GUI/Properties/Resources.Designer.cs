@@ -143,6 +143,16 @@ namespace GUI.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap minus_size {
+            get {
+                object obj = ResourceManager.GetObject("minus_size", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap next_arrow {
             get {
                 object obj = ResourceManager.GetObject("next_arrow", resourceCulture);
@@ -156,6 +166,16 @@ namespace GUI.Properties {
         internal static System.Drawing.Bitmap paste {
             get {
                 object obj = ResourceManager.GetObject("paste", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap plus_size {
+            get {
+                object obj = ResourceManager.GetObject("plus_size", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
