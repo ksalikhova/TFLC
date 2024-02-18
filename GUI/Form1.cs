@@ -2,12 +2,20 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
+using System.Net.NetworkInformation;
+using System.Reflection.Emit;
+using System.Resources;
+using System.Runtime.Remoting.Channels;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 
 namespace GUI
 {
@@ -16,7 +24,9 @@ namespace GUI
         public Compiler()
         {
             InitializeComponent();
-            //UpdateLineNumbers();
+
+            MouseEventArgs fakeMouseArgs = new MouseEventArgs(MouseButtons.None, 0, 0, 0, 0);
+            ControlMouse();
         }
 
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -60,13 +70,21 @@ namespace GUI
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show(
-                "Вы действительно хотите выйти?",
+                "Сохранить изменения?",
                 "Выход",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
 
-            if(result == DialogResult.Yes )
+            if(result == DialogResult.Yes)
+            {
+                FileWorker fileWorker = new FileWorker();
+                fileWorker.SaveFile(inputField.Text);
                 this.Close();
+            }
+            else
+            {
+                this.Close();
+            }                         
         }
 
         private void сохранитьКакToolStripMenuItem_Click(object sender, EventArgs e)
@@ -218,34 +236,91 @@ namespace GUI
                     MessageBoxButtons.OK);
             }
         }
-        private void UpdateLineNumbers()
+        
+        private void ControlMouse()
         {
-            inputField.SelectionStart = 0;
-            inputField.SelectionLength = inputField.Text.Length;
-            inputField.SelectionBackColor = inputField.BackColor;
-
-            int selectionStart = inputField.SelectionStart;
-            int selectionLength = inputField.Text.Length;
-
-            int firstIndex = inputField.GetCharIndexFromPosition(new Point(0, 0));
-            int firstLine = inputField.GetLineFromCharIndex(firstIndex);
-            int firstLineY = inputField.GetPositionFromCharIndex(firstIndex).Y;
-
-            inputField.SelectionStart = 0;
-            inputField.SelectionLength = inputField.Text.Length;
-
-            int i = 0;
-            Point newPoint = new Point(0, firstLineY);
-            while (newPoint.Y < inputField.Height)
+            // Обработчик события MouseDown
+            inputField.MouseDown += (sender, e) =>
             {
-                i++;
-                inputField.SelectionBackColor = Color.LightGray;
-                inputField.SelectedText = i.ToString() + Environment.NewLine;
-                newPoint = inputField.GetPositionFromCharIndex(inputField.GetFirstCharIndexFromLine(i));
-            }
+                // Проверяем, что нажата левая кнопка мыши
+                if (e.Button == MouseButtons.Left)
+                {
+                    // Запоминаем начальные координаты и размеры inputField
+                    int startX = e.X;
+                    int startY = e.Y;
+                    int startWidth = inputField.Width;
+                    int startHeight = inputField.Height;
 
-            inputField.SelectionStart = selectionStart;
-            inputField.SelectionLength = selectionLength;
+                    // Обработчик события MouseMove
+                    inputField.MouseMove += (s, ev) =>
+                    {
+                        // Проверяем, что левая кнопка мыши все еще нажата
+                        if (ev.Button == MouseButtons.Left)
+                        {
+                            // Вычисляем изменение координат и размеров
+                            int deltaX = ev.X - startX;
+                            int deltaY = ev.Y - startY;
+                            int newWidth = startWidth + deltaX;
+                            int newHeight = startHeight + deltaY;
+
+                            // Ограничиваем минимальный размер inputField
+                            if (newWidth >= inputField.MinimumSize.Width && newHeight >= inputField.MinimumSize.Height)
+                            {
+                                // Устанавливаем новые размеры inputField
+                                inputField.Width = newWidth;
+                                inputField.Height = newHeight;
+                            }
+                        }
+                    };
+                }
+            };
+
+            // Обработчик события MouseUp
+            inputField.MouseUp += (sender, e) =>
+            {
+                // Отключаем обработчик события MouseMove
+                inputField.MouseMove -= (s, ev) => { };
+            };
+
+            
+        }
+
+        private void вызовСправкиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ProgramInformation info = new ProgramInformation();
+
+            try
+            {
+                info.CallInformation();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(
+                    ex.Message,
+                    "Внимание",
+                    MessageBoxButtons.OK);
+            }
+        }
+
+        private void referenceToolStripButton_Click(object sender, EventArgs e)
+        {
+            ProgramInformation info = new ProgramInformation();
+
+            try
+            {
+                info.CallInformation();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    ex.Message,
+                    "Внимание",
+                    MessageBoxButtons.OK);
+            }
         }
     }
+        
+    
+
+    
 }
