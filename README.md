@@ -21,4 +21,4 @@
 
 **Язык реализации:** C#.
 ### Интерфейс текстового редактора
-![]()
+![](https://github.com/ksalikhova/TFLC/blob/master/README%20images/program_interface.PNG)
