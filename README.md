@@ -21,4 +21,31 @@
 
 **Язык реализации:** C#.
 ### Интерфейс текстового редактора
-![](https://github.com/ksalikhova/TFLC/blob/master/README%20images/program_interface.PNG)
+![Главное окно программы](https://github.com/ksalikhova/TFLC/blob/master/README%20images/program_interface.PNG)
+#### **Элементы текстового редактора:**
+1. **Меню**
+   | Пункт меню | Подпункты меню |
+   | ------------- |   ------------- |
+   | Файл | https://github.com/ksalikhova/TFLC/blob/master/README%20images/file_menu.png |
+   | Правка  | https://github.com/ksalikhova/TFLC/blob/master/README%20images/correction_menu.png | 
+   |Текст| https://github.com/ksalikhova/TFLC/blob/master/README%20images/text_menu.png |
+   |Пуск| __ |
+   |Справка| https://github.com/ksalikhova/TFLC/blob/master/README%20images/info_menu.png |
+2. **Панель инструментов**
+   + Создать
+   + Открыть
+   + Сохранить
+   + Отменить
+   + Повторить
+   + Копировать
+   + Вырезать
+   + Вставить
+   + Пуск
+   + Вызов справки
+   + О программе
+   + Увеличить размер текста
+   + Уменьшить размер текста
+  3. **Область редактирования**  
+    Область для ввода текста. При открытии файла отображает текст из него.
+  4. **Область отображения результатов**  
+    Область отображения результатов выводит сообщения и результаты работы языкового процессора.
