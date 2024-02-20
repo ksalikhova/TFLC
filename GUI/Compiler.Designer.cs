@@ -58,13 +58,10 @@
             this.вызовСправкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripSeparator();
-            this.inputField = new System.Windows.Forms.RichTextBox();
-            this.outputField = new System.Windows.Forms.RichTextBox();
             this.createToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripSeparator();
             this.cancelChangeToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.retrieveChangeToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.copyToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -73,8 +70,11 @@
             this.startToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.referenceToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.programInfoToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripSeparator();
             this.plusSizeoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.minusSizeoolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.inputField = new System.Windows.Forms.RichTextBox();
+            this.outputField = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -292,8 +292,9 @@
             // оПрограммеToolStripMenuItem
             // 
             this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.оПрограммеToolStripMenuItem.Text = "О программе";
+            this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
             // 
             // toolStrip1
             // 
@@ -318,38 +319,6 @@
             this.toolStrip1.Size = new System.Drawing.Size(800, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripButton4
-            // 
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // inputField
-            // 
-            this.inputField.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.inputField.Location = new System.Drawing.Point(12, 61);
-            this.inputField.Name = "inputField";
-            this.inputField.Size = new System.Drawing.Size(776, 187);
-            this.inputField.TabIndex = 3;
-            this.inputField.Text = "";
-            // 
-            // outputField
-            // 
-            this.outputField.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.outputField.Location = new System.Drawing.Point(12, 254);
-            this.outputField.Name = "outputField";
-            this.outputField.ReadOnly = true;
-            this.outputField.Size = new System.Drawing.Size(776, 187);
-            this.outputField.TabIndex = 4;
-            this.outputField.Text = "";
             // 
             // createToolStripButton
             // 
@@ -379,6 +348,11 @@
             this.saveToolStripButton.Name = "saveToolStripButton";
             this.saveToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.saveToolStripButton.Text = "Сохранить";
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(6, 25);
             // 
             // cancelChangeToolStripButton
             // 
@@ -458,6 +432,11 @@
             this.programInfoToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.programInfoToolStripButton.Text = "О программе";
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(6, 25);
+            // 
             // plusSizeoolStripButton
             // 
             this.plusSizeoolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -478,6 +457,28 @@
             this.minusSizeoolStripButton.Text = "Уменьшить шрифт";
             this.minusSizeoolStripButton.Click += new System.EventHandler(this.minusSizeoolStripButton_Click);
             // 
+            // inputField
+            // 
+            this.inputField.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.inputField.Location = new System.Drawing.Point(12, 61);
+            this.inputField.Name = "inputField";
+            this.inputField.Size = new System.Drawing.Size(776, 187);
+            this.inputField.TabIndex = 3;
+            this.inputField.Text = "";
+            // 
+            // outputField
+            // 
+            this.outputField.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.outputField.Location = new System.Drawing.Point(12, 254);
+            this.outputField.Name = "outputField";
+            this.outputField.ReadOnly = true;
+            this.outputField.Size = new System.Drawing.Size(776, 187);
+            this.outputField.TabIndex = 4;
+            this.outputField.Text = "";
+            // 
             // Compiler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -493,6 +494,7 @@
             this.Name = "Compiler";
             this.Text = "Компилятор";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Compiler_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);

@@ -37,7 +37,7 @@ namespace GUI
 
         public string OpenFile()
         {          
-            openFileDialog.Filter = "All Files|*.doc;*.xls;*.ppt;*.doc;.xls;*.ppt;*.txt;"; //"*.html | *.htm";
+            openFileDialog.Filter = "All Files|*.doc;*.xls;*.ppt;*.doc;.xls;*.ppt;*.txt;";
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {              

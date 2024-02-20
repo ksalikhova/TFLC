@@ -318,6 +318,25 @@ namespace GUI
                     MessageBoxButtons.OK);
             }
         }
+
+        private void Compiler_FormClosing(object sender, FormClosingEventArgs e)
+        {
+          
+                if (MessageBox.Show("Вы уверены, что хотите закрыть программу?\n" +
+                    "Текущие изменения не сохранятся!", "Подтвердите закрытие", MessageBoxButtons.YesNo) != DialogResult.Yes)
+                {
+                    e.Cancel = true;
+                }
+            
+        }
+
+        private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ProgramInfo info = new ProgramInfo();
+
+            this.Hide();
+            info.Show();
+        }
     }
         
     

@@ -163,6 +163,16 @@ namespace GUI.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap nstu {
+            get {
+                object obj = ResourceManager.GetObject("nstu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap paste {
             get {
                 object obj = ResourceManager.GetObject("paste", resourceCulture);
