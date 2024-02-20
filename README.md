@@ -26,11 +26,11 @@
 1. **Меню**
    | Пункт меню | Подпункты меню |
    | ------------- |   ------------- |
-   | Файл | https://github.com/ksalikhova/TFLC/blob/master/README%20images/file_menu.png |
-   | Правка  | https://github.com/ksalikhova/TFLC/blob/master/README%20images/correction_menu.png | 
-   |Текст| https://github.com/ksalikhova/TFLC/blob/master/README%20images/text_menu.png |
+   | Файл | ![Файловые операции](https://github.com/ksalikhova/TFLC/blob/master/README%20images/file_menu.png) |
+   | Правка  | ![Операции правки](https://github.com/ksalikhova/TFLC/blob/master/README%20images/correction_menu.png) | 
+   |Текст| ![Операции текста](https://github.com/ksalikhova/TFLC/blob/master/README%20images/text_menu.png) |
    |Пуск| __ |
-   |Справка| https://github.com/ksalikhova/TFLC/blob/master/README%20images/info_menu.png |
+   |Справка| ![Операции справки](https://github.com/ksalikhova/TFLC/blob/master/README%20images/info_menu.png) |
 2. **Панель инструментов**
    + Создать
    + Открыть
