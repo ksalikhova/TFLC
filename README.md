@@ -76,10 +76,18 @@
 |:--------------------:|:----------------------------------------------------------:|
 | №                    | 4                                                          | 
 | Тема                 | Объявление комплексного числа с инициализацией на языке C# | 
-| Пример верной строки | ```C# Complex c1 = new Complex(1.2, 6.0);   ```              |
-
+| Пример верной строки | ``` Complex c1 = new Complex(1.2, 6.0);   ```              |
 
  **Язык реализации:** C#.
-### Интерфейс текстового редактора
-![Главное окно программы](https://github.com/ksalikhova/TFLC/blob/master/README%20images/program_interface.PNG)
+
+ ### Диаграмма состояний сканера
+ ![Сканер](https://github.com/ksalikhova/TFLC/blob/master/README%20images/scanner_state_diagram.png)
+ 
+### Обновленный интерфейс текстового редактора
+![Главное окно программы](https://github.com/ksalikhova/TFLC/blob/master/README%20images/new_interface.png)
+
+### Примеры работы лексического анализатора
+![]()
+![]()
+![]()
 
