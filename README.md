@@ -87,7 +87,7 @@
 ![Главное окно программы](https://github.com/ksalikhova/TFLC/blob/master/README%20images/new_interface.png)
 
 ### Примеры работы лексического анализатора
-![]()
+![Простой вставки правильной строки]()
 ![]()
 ![]()
 
