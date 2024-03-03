@@ -79,9 +79,13 @@
 | Пример верной строки | ``` Complex c1 = new Complex(1.2, 6.0);   ```              |
 
 ### Примеры допустимых строк
-``` Compex c1 = new Complex(1.2, 2.3); ```
-``` Complex complex = new Complex(-12.8, -2.0); ```
+``` 
+Compex c1 = new Complex(1.2, 2.3);
 ```
+``` 
+Complex complex = new Complex(-12.8, -2.0);
+```
+```C#
 Complex temp = new Complex(125.0, -2.36);
 Coplex c2 = new Complex(-5.0, 45.23);
 
