@@ -79,10 +79,10 @@
 | Пример верной строки | ``` Complex c1 = new Complex(1.2, 6.0);   ```              |
 
 ### Примеры допустимых строк
-``` 
+```C# 
 Compex c1 = new Complex(1.2, 2.3);
 ```
-``` 
+```C# 
 Complex complex = new Complex(-12.8, -2.0);
 ```
 ```C#
