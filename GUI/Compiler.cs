@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,7 +27,6 @@ namespace GUI
             InitializeComponent();
 
             MouseEventArgs fakeMouseArgs = new MouseEventArgs(MouseButtons.None, 0, 0, 0, 0);
-            ControlMouse();
         }
 
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -236,55 +236,7 @@ namespace GUI
                     MessageBoxButtons.OK);
             }
         }
-        
-        private void ControlMouse()
-        {
-            // Обработчик события MouseDown
-            inputField.MouseDown += (sender, e) =>
-            {
-                // Проверяем, что нажата левая кнопка мыши
-                if (e.Button == MouseButtons.Left)
-                {
-                    // Запоминаем начальные координаты и размеры inputField
-                    int startX = e.X;
-                    int startY = e.Y;
-                    int startWidth = inputField.Width;
-                    int startHeight = inputField.Height;
-
-                    // Обработчик события MouseMove
-                    inputField.MouseMove += (s, ev) =>
-                    {
-                        // Проверяем, что левая кнопка мыши все еще нажата
-                        if (ev.Button == MouseButtons.Left)
-                        {
-                            // Вычисляем изменение координат и размеров
-                            int deltaX = ev.X - startX;
-                            int deltaY = ev.Y - startY;
-                            int newWidth = startWidth + deltaX;
-                            int newHeight = startHeight + deltaY;
-
-                            // Ограничиваем минимальный размер inputField
-                            if (newWidth >= inputField.MinimumSize.Width && newHeight >= inputField.MinimumSize.Height)
-                            {
-                                // Устанавливаем новые размеры inputField
-                                inputField.Width = newWidth;
-                                inputField.Height = newHeight;
-                            }
-                        }
-                    };
-                }
-            };
-
-            // Обработчик события MouseUp
-            inputField.MouseUp += (sender, e) =>
-            {
-                // Отключаем обработчик события MouseMove
-                inputField.MouseMove -= (s, ev) => { };
-            };
-
-            
-        }
-
+              
         private void вызовСправкиToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ProgramInformation info = new ProgramInformation();
@@ -337,9 +289,38 @@ namespace GUI
             this.Hide();
             info.Show();
         }
-    }
-        
-    
 
-    
+        private void пускToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LexemeAnalyzer analyzer = new LexemeAnalyzer();
+
+            analyzer.Analyze(inputField.Text);
+            UpdateDataGrid();           
+        }
+
+        private void UpdateDataGrid()
+        {
+            LexemeAnalyzer analyzer = new LexemeAnalyzer();
+
+            List<Lexemes> lexemesList = analyzer.Analyze(inputField.Text);
+            int index = 0;
+
+            dataGridView1.Rows.Clear();
+
+            foreach(Lexemes lexeme in lexemesList)
+            {
+
+                dataGridView1.Rows.Add(index, lexeme.IdLexeme,lexeme.LexemeName, lexeme.Value,lexeme.Position);
+                index++; 
+            }
+        }
+
+        private void startToolStripButton_Click(object sender, EventArgs e)
+        {
+            LexemeAnalyzer analyzer = new LexemeAnalyzer();
+
+            analyzer.Analyze(inputField.Text);
+            UpdateDataGrid();
+        }
+    }           
 }

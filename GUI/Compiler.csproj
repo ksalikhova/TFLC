@@ -103,6 +103,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\FileWorker.cs" />
+    <Compile Include="Classes\LexemeAnalyzer.cs" />
+    <Compile Include="Classes\Lexemes.cs" />
     <Compile Include="Compiler.cs">
       <SubType>Form</SubType>
     </Compile>
