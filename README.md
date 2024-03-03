@@ -80,14 +80,14 @@
 
 ### Примеры допустимых строк
 ```C# 
-Compex c1 = new Complex(1.2, 2.3);
+Complex c1 = new Complex(1.2, 2.3);
 ```
 ```C# 
 Complex complex = new Complex(-12.8, -2.0);
 ```
 ```C#
 Complex temp = new Complex(125.0, -2.36);
-Coplex c2 = new Complex(-5.0, 45.23);
+Complex c2 = new Complex(-5.0, 45.23);
 
 ```
 
@@ -100,16 +100,21 @@ Coplex c2 = new Complex(-5.0, 45.23);
 ![Главное окно программы](https://github.com/ksalikhova/TFLC/blob/master/README%20images/new_interface.png)
 
 ### Примеры работы лексического анализатора
-![Однострочный пример](https://github.com/ksalikhova/TFLC/blob/master/README%20images/simple_example.PNG)
+![Однострочный пример](https://github.com/ksalikhova/TFLC/blob/master/README%20images/simple_example.PNG)<br>
 Ввод одной верной строки
-![Многострочный пример](https://github.com/ksalikhova/TFLC/blob/master/README%20images/dif_example_1.png)
+
+![Многострочный пример](https://github.com/ksalikhova/TFLC/blob/master/README%20images/dif_example_1.png)<br>
 Ввод нескольких верных строк
-![Многострочный пример (продолжение)](https://github.com/ksalikhova/TFLC/blob/master/README%20images/dif_example_2.png)
+
+![Многострочный пример (продолжение)](https://github.com/ksalikhova/TFLC/blob/master/README%20images/dif_example_2.png)<br>
 Ввод нескольких верных строк (продолжение)
-![Многострочный пример (продолжение)](https://github.com/ksalikhova/TFLC/blob/master/README%20images/dif_example_3.png)
+
+![Многострочный пример (продолжение)](https://github.com/ksalikhova/TFLC/blob/master/README%20images/dif_example_3.png)<br>
 Ввод нескольких верных строк (продолжение)
-![Многострочный пример (продолжение)](https://github.com/ksalikhova/TFLC/blob/master/README%20images/dif_example_4.png)
+
+![Многострочный пример (продолжение)](https://github.com/ksalikhova/TFLC/blob/master/README%20images/dif_example_4.png)<br>
 Ввод нескольких верных строк (продолжение)
-![Пример вывода ошибок](https://github.com/ksalikhova/TFLC/blob/master/README%20images/error_png.PNG)
+
+![Пример вывода ошибок](https://github.com/ksalikhova/TFLC/blob/master/README%20images/error_png.PNG)<br>
 Ввод строк с недопустимыми символами
 
