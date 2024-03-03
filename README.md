@@ -52,9 +52,9 @@
 #### **Справка**
 | Подпункт | Содержание |
    | ------------- |   ------------- |
-   | Вызов справки | ![Содержимое веб-страницы справки](https://github.com/ksalikhova/TFLC/blob/master/README%20images/file_menu.png) |
+   | Вызов справки | ![Содержимое веб-страницы справки](https://github.com/ksalikhova/TFLC/blob/master/README%20images/staff_report.png) |
    | О программе  | ![Содержимое окна "О программе"](https://github.com/ksalikhova/TFLC/blob/master/README%20images/program_info.png) | 
-     
+     При нажатии кнопки "Вызов справки" открывается вкладка веб-браузера с содержимым справки программы.
   ___
 
 
