@@ -103,8 +103,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\FileWorker.cs" />
-    <Compile Include="Classes\LexemeAnalyzer.cs" />
-    <Compile Include="Classes\Lexemes.cs" />
+    <Compile Include="Scanner\LexemeAnalyzer.cs" />
+    <Compile Include="Scanner\Lexemes.cs" />
     <Compile Include="Compiler.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +120,7 @@
       <DependentUpon>ProgramInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tetrad\Parser.cs" />
     <EmbeddedResource Include="Compiler.resx">
       <DependentUpon>Compiler.cs</DependentUpon>
     </EmbeddedResource>
@@ -188,5 +189,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -34,13 +34,13 @@ namespace GUI.Classes
 
                     switch (value)
                     {
-                        case "Complex":
+                        case "Complex"://Const
                             Lexemes.Add(new Lexemes(TypeOfLexeme.Complex, value, startIndex + 1, index + 1));
                             break;
-                        case "new":
+                        case "new"://удалить
                             Lexemes.Add(new Lexemes(TypeOfLexeme.NewInstanceOperator, value, startIndex + 1, index + 1));
                             break;
-                        default:
+                        default://оставвить
                             Lexemes.Add(new Lexemes(TypeOfLexeme.Identifier, value, startIndex + 1, index + 1));
                             break;
                     }
@@ -50,28 +50,70 @@ namespace GUI.Classes
                     if (char.IsDigit(input[index]))
                     {
                         int startIndex = index;
-                        while ((index + 1) < input.Length && char.IsDigit(input[index]))
+                        string temp = String.Empty;
+                        int count = 0;
+
+                        while((index) < input.Length)
                         {
-                            //while ((index + 1) < input.Length && char.IsDigit(input[index + 1]) || (index + 1) < input.Length && char.IsDigit(input[index + 1]) && input[index + 2] == '.')
-                            while ((index + 1) < input.Length && (char.IsDigit(input[index + 1]) || input[index + 1] == '.'))
+                            if(count > 0)
                             {
-                                if (input[index + 1] == '.')
+                                if (char.IsDigit(input[index]))
                                 {
-                                    //value += input[index];
-                                    value += input[index + 1];
-                                    index += 2;
+                                    temp += (input[index]).ToString();
+                                    index++;
                                 }
-                                else
-                                {
+                                else                              
                                     break;
+                            }
+                            else
+                            {
+                                if (char.IsDigit(input[index]))
+                                {
+                                    temp += (input[index]).ToString();
+                                    index++;
+                                }
+                                else if(input[index] == '.')
+                                {
+                                    temp += (input[index]).ToString();
+                                    index++;
+                                    count++;
                                 }
                                
                             }
-                            value += input[index];//доработать
-                            index++;                            
+                            
+
+
+                            //else if (input[index + 1] == '.')
+                            //{
+                            //    temp += (input[index]).ToString();
+                            //    index++;
+                            //}
+                            //else
+                            //    break;
                         }
-                        Lexemes.Add(new Lexemes(TypeOfLexeme.UnsignedInteger, value, startIndex + 1, index + 1));
-                        index--;
+                        Lexemes.Add(new Lexemes(TypeOfLexeme.UnsignedInteger, temp, startIndex + 1, index + 1));
+                        //while ((index + 1) < input.Length && char.IsDigit(input[index]))
+                        //{
+                        //    //while ((index + 1) < input.Length && char.IsDigit(input[index + 1]) || (index + 1) < input.Length && char.IsDigit(input[index + 1]) && input[index + 2] == '.')
+                        //    while ((index + 1) < input.Length && (char.IsDigit(input[index + 1]) || input[index + 1] == '.'))
+                        //    {
+                        //        if (input[index + 1] == '.')
+                        //        {
+                        //            //value += input[index];
+                        //            value += input[index + 1];
+                        //            index += 2;
+                        //        }
+                        //        else
+                        //        {
+                        //            break;
+                        //        }
+                               
+                        //    }
+                        //    value += input[index];//доработать
+                        //    index++;                            
+                        //}
+                        //Lexemes.Add(new Lexemes(TypeOfLexeme.UnsignedInteger, value, startIndex + 1, index + 1));
+                        //index--;
                     }
                     else
                     {

@@ -9,7 +9,13 @@ namespace GUI.Classes
 {
     public enum TypeOfLexeme
     {
-        Complex = 1,
+        Complex = 1,        //const =1,
+        //Identifier = 2,
+        //AssignmentOperator =3,
+        //WhiteSpace = 4,
+        //NewLine = 5,
+        //integer =6,
+        // EndOfOperator =7
         Identifier = 2,
         NewInstanceOperator = 3,
         WhiteSpace = 4,

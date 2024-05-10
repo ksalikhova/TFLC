@@ -1,4 +1,5 @@
 ﻿using GUI.Classes;
+using GUI.Tetrad;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Net.NetworkInformation;
+using System.Reflection;
 using System.Reflection.Emit;
 using System.Resources;
 using System.Runtime.Remoting.Channels;
@@ -295,6 +297,9 @@ namespace GUI
             LexemeAnalyzer analyzer = new LexemeAnalyzer();
 
             analyzer.Analyze(inputField.Text);
+
+            
+
             UpdateDataGrid();           
         }
 
@@ -306,8 +311,17 @@ namespace GUI
             int index = 0;
 
             dataGridView1.Rows.Clear();
+            dataGridView3.Rows.Clear();
 
-            foreach(Lexemes lexeme in lexemesList)
+            Parser parser = new Parser(inputField.Text);
+            parser.ParseTetrad(inputField.Text);
+            foreach (var tetrad in parser.ParseTetrad(inputField.Text))
+            {
+                dataGridView3.Rows.Add(index, tetrad.op, tetrad.arg1, tetrad.arg2, tetrad.result);
+                index++;
+            }
+
+            foreach (Lexemes lexeme in lexemesList)
             {
 
                 dataGridView1.Rows.Add(index, lexeme.IdLexeme,lexeme.LexemeName, lexeme.Value,lexeme.Position);
