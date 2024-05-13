@@ -134,21 +134,33 @@ Complex c2 = new Complex(-5.0, 45.23);
 
 **V<sub>T</sub>** = { ‘Complex’, ‘a’…’z’, ‘A’…’Z’, ‘0’…’9’, ‘.’, ‘(’, ‘)’, ‘,’, ‘;’, ‘ ‘, ‘=’, ‘new’ }</br>
 
-**V<sub>N</sub>** = { <КОМП>, IDENT, TYPE, ASSIGN, NEW, CONSTRUCTOR, REAL, DOT, DIGIT, END }</br>
+**V<sub>N</sub>** = { <КОМП>, IDENT, TYPE, ASSIGN, NEW, CONSTRUCTOR, REAL, IMAGIN, DOT, DIGIT, END, SIGN, SEPARATOR }</br>
 
 **P** = {</br>
 </br>
-<КОМП> -> TYPE IDENT ASSIGN NEW CONSTRUCTOR END</br>
-TYPE -> ‘Complex’ ‘ ‘ </br>
-IDENT -> ‘a’…’z’ {‘a’…’z’ | ‘A’…’Z’ | ‘0’…’9’ | ‘_’} </br>
-ASSIGN -> ‘ ‘ ‘=’ ‘ ‘</br>
-NEW -> ‘new’ ‘ ‘</br>
-CONSTRUCTOR -> TYPE ‘(‘ REAL ‘,’ REAL ‘)’</br>
-REAL ->  [‘+’|‘-’] DIGIT DOT DIGIT </br>
-DOT -> ‘.’</br>
-DIGIT -> ‘0’ | ‘1’ | … | ‘9’</br>
-END -> ‘;’</br>
-</br>
+<КОМП> -> ‘Complex’ <IDENT> </br>
+<IDENT> ->  {letter | digit | ‘_’}<ASSIGN> </br>
+<ASSIGN> ->  ‘=’ <NEW></br>
+<NEW> -> ‘new’ <TYPE></br>
+<TYPE> -> ‘Complex’<CONSTRUCTOR><br/>
+<CONSTRUCTOR> ->  ‘(‘ <SIGN></br>
+<SIGN> -> [‘+’|‘-’] <REAL><br/>
+<REAL> ->  <DIGIT>  </br>
+<DIGIT> -> digit <DOT><br/>
+DOT -> ‘.’<IMAGIN></br>
+<IMAGIN> -> <DIGIT></br>
+<DIGIT> -> digit <SEPARATOR><br/>
+<SEPARATOR> -> ‘,’<SIGN></br>
+<SIGN> -> [‘+’|‘-’] <REAL><br/>
+<REAL> ->  <DIGIT>  </br>
+<DIGIT> -> digit </br> <DOT><br/>
+DOT -> ‘.’<IMAGIN></br>
+<IMAGIN> -> <DIGIT></br>
+<DIGIT> -> digit <CONSTRUCTOR><br/>
+<CONSTRUCTOR> -> ‘)‘<END><br/>
+<END> -> ‘;’</br>
+letter → ‘a’ | ‘b’ | … | ‘z’ | ‘A’ | ‘B’ | … | ‘Z’</br>
+digit → ‘0’ | ‘1’ | … | ‘9’</br>
 }</br>
 
 **Объяснение:** </br>
