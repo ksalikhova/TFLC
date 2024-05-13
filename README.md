@@ -140,26 +140,19 @@ G[<КОМП> = <Комплексное_число>]:
 **P** = {</br>
 </br>
 <КОМП> -> ‘Complex’ IDENT</br>
-IDENT ->  {letter | digit | ‘_’}ASSIGN</br>
-ASSIGN ->  ‘=’ NEW
-NEW -> ‘new’ TYPE</br>
-TYPE -> ‘Complex’CONSTRUCTOR<br/>
-CONSTRUCTOR ->  ‘(‘ SIGN</br>
-SIGN -> [‘+’|‘-’] REAL<br/>
-REAL ->  DIGIT</br>
-DIGIT -> digit DOT<br/>
-DOT -> ‘.’IMAGIN</br>
-IMAGIN -> DIGIT</br>
-DIGIT -> digit SEPARATOR<br/>
-SEPARATOR -> ‘,’SIGN</br>
-SIGN -> [‘+’|‘-’] REAL<br/>
-REAL ->  DIGIT</br>
-DIGIT -> digit DOT<br/>
-DOT -> ‘.’IMAGIN</br>
-IMAGIN -> DIGIT</br>
-DIGIT -> digit CONSTRUCTOR<br/>
-CONSTRUCTOR -> ‘)‘END<br/>
-END -> ‘;’</br>
+IDENT ->  letter IDREM</br>
+IDREM -> letter IDREM|digit IDREM|_IDREM|'='NEW</br>
+NEW -> 'new' TYPE</br>
+TYPE -> 'Complex' CONSTRUCTOR</br>
+CONSTRUCTOR -> '(' SIGN</br>
+SIGN -> '-' NUM|digit NUM</br>
+NUM -> digit REAL|'.'NUM|',' IMAGINARY</br>
+REAL -> digit REALREM</br>
+REALREM -> digit REALREM|','IMAGINARY</br>
+IMAGINARY -> digit INTIMAGINARY</br>
+INTIMAGINARY -> digit INTIMAGINARY|'.'INTIMAGINARY|')'END</br>
+END -> ';'</br>
+
 letter → ‘a’ | ‘b’ | … | ‘z’ | ‘A’ | ‘B’ | … | ‘Z’</br>
 digit → ‘0’ | ‘1’ | … | ‘9’</br>
 }</br>
