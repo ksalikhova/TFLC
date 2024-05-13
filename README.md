@@ -141,7 +141,7 @@ G[<КОМП> = <Комплексное_число>]:
 </br>
 <КОМП> -> ‘Complex’ <IDENT> </br>
 <IDENT> ->  {letter | digit | ‘_’}<ASSIGN> </br>
-<ASSIGN> ->  ‘=’ <NEW></br>
+<ASSIGN> ->  ‘=’ <NEW>
 <NEW> -> ‘new’ <TYPE></br>
 <TYPE> -> ‘Complex’<CONSTRUCTOR><br/>
 <CONSTRUCTOR> ->  ‘(‘ <SIGN></br>
