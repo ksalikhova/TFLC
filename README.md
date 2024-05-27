@@ -187,7 +187,7 @@ digit → ‘0’ | ‘1’ | … | ‘9’</br>
 | Задание              |1) Дополнить парсер грамматикой G[<АВ>]. Реализовать данную КС-граммматику методом рекурсивного спуска: </br>1. E → TA</br>2. A → ε | + TA | - TA</br>3. T → ОВ </br>4. В → ε | *ОВ | /ОВ</br>5. О → id | (E)</br>2) Реализовать алгоритм записи выражений в форме тетрад. 
 
 **Пример работы программы**
-![Сканер]([https://github.com/ksalikhova/TFLC/blob/master/README%20images/scanner_state_diagram.png](https://github.com/ksalikhova/TFLC/blob/master/README%20images/123.png))
+![Сканер](https://github.com/ksalikhova/TFLC/blob/master/README%20images/123.png)
                                                                                                                           
 ## Лабораторная работа №6 "Реализация алгоритма поиска подстрок с помощью регулярных выражений."
 
